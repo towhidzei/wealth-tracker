@@ -1,0 +1,20 @@
+[package]
+name = "wealth-tracker"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+futures = "0.3"
+tokio = {version = "1.32.0", features = ["full"]}
+sqlx = {version = "0.7.1", features = ["sqlite", "macros", "runtime-tokio-native-tls"] }
+dotenv = { version = "0.15.0"}
+config_rs = { package = "config", version = "0.13.3" }
+serde = { version = "1.0.124", features = [ "derive" ] }
+serde_json = "1.0.64"
+
+[[bin]]
+name = "rest"
+path= "src/bin/rest.rs"

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  rest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: rest
+    container_name: wealth_rest
+    volumes:
+      - "./data.db:/data.db"
+    ports:
+      - "8000:8000"
+    environment:
+      - RUN_MODE=production
+      - DATABASE_URL=sqlite:./data.db
+networks:
+  docker_default:
+    external: true
